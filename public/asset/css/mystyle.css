@@ -1,0 +1,40 @@
+#btnCart {
+    background-color: #060606;
+    color: #fff;
+    border-radius: 25px;
+}
+#btnBuy {
+    background-color: #060606;
+    color: #fff;
+    border-radius: 25px;
+}
+#btnCart:hover {
+    background-color: #752222;
+    color: #fff;
+}
+#cari {
+    border-radius: 20px;
+}
+#img {
+    border-radius: 0px 50px 0px 50px;
+    border: 2px solid #fff;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    -khtml-box-shadow: 10px 10px 5px #ccc;
+    transform: scale(0.9);
+    transition: all 0.4s ease;
+}
+#img:hover {
+    transform: scale(0.99);
+    transition: all 0.4s ease;
+}
+
+.card {
+    border-radius: 0px 50px 0px 50px;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    -khtml-box-shadow: 10px 10px 5px #ccc;
+    cursor: pointer;
+}

@@ -1,0 +1,56 @@
+#btnadd {
+    background-color: #2f4f4f;
+    color: #fff;
+    border-radius: 5px;
+}
+#btnadd:hover {
+    background-color: white;
+    color: #2f4f4f;
+}
+#btnedit {
+    background-color: #2f4f4f;
+    color: #fff;
+    border-radius: 5px;
+}
+#btncancel {
+    background-color: #2f4f4f;
+    color: rgb(247, 238, 238);
+    border-radius: 5px;
+}
+#btncancel:hover {
+    background-color: #d13614;
+    color: #e9f1f1;
+    border-radius: 5px;
+}
+#btnsave {
+    background-color: #2f4f4f;
+    color: #fff;
+    border-radius: 5px;
+}
+#btnsave:hover {
+    background-color: #bfc5c5;
+    color: #2f4f4f;
+    border-radius: 5px;
+}
+#btnhapus {
+    background-color: #2f4f4f;
+    color: #fff;
+    border-radius: 5px;
+}
+#btnedit:hover {
+    background-color: white;
+    color: #2f4f4f;
+}
+#btnhapus:hover {
+    background-color: white;
+    color: #2f4f4f;
+}
+#img {
+    border-radius: 7px;
+    border: 2px solid #fff;
+    background: url(img/tiger.png) no-repeat;
+    box-shadow: 10px 10px 5px #ccc;
+    -moz-box-shadow: 10px 10px 5px #ccc;
+    -webkit-box-shadow: 10px 10px 5px #ccc;
+    -khtml-box-shadow: 10px 10px 5px #ccc;
+}
