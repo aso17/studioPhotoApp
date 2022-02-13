@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Studio Foto Radja</title>
+    <title>RadjaStudioPhotos</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('asset/plugins/fontawesome-free/css/all.min.css ') }} ">
@@ -33,6 +33,7 @@
 
     <!-- jQuery -->
     <script language="JavaScript" type="text/javascript" src="{{ asset('asset/plugins/jquery/jquery.min.js') }} ">
+    <script language="JavaScript" type="text/javascript" src="{{ asset('asset/js/my.js') }} ">
     </script>
     <!-- Bootstrap 4 -->
     <script language="JavaScript" type="text/javascript"

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->char('qtyOrder', 15);
             $table->date('dateOrder');
-            $table->char('totalPrice', 20);
             $table->timestamps();
         });
         Schema::table('orders', function (Blueprint $table) {

@@ -38,3 +38,23 @@
     -khtml-box-shadow: 10px 10px 5px #ccc;
     cursor: pointer;
 }
+#btnCancel {
+    background-color: #2f4f4f;
+    color: rgb(247, 238, 238);
+    border-radius: 5px;
+}
+#btnCancel:hover {
+    background-color: #d13614;
+    color: #e9f1f1;
+    border-radius: 5px;
+}
+#btnSave {
+    background-color: #2f4f4f;
+    color: #fff;
+    border-radius: 5px;
+}
+#btnSave:hover {
+    background-color: #bfc5c5;
+    color: #2f4f4f;
+    border-radius: 5px;
+}
