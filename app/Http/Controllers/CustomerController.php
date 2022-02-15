@@ -58,7 +58,7 @@ class CustomerController extends Controller
                 'category_id' => $request->idcategory,
                 'cutomer_id' => session('id_user')
             ]);
-            return redirect('/customer')->with('success', 'create category successful');
+            return redirect('/customer')->with('success', 'pesanan telah dibuat lihat dimenu history');
         }
     }
 
