@@ -78,9 +78,7 @@
            data-id_bingkai="{{$item->id}}"
            data-des="{{$item->description}}"
            data-unit="{{$item->unitPrice}}"
-           data-stock="{{$item->stock}}"
-           
-           
+           data-stock="{{$item->stock}}"    
            >$  Buy</button>
           </div>
         </div>
@@ -93,6 +91,7 @@
 {{-- modaldetail --}}
 
 <!-- Modal -->
+<form action="{{'customer'}}" method="POST">
 <div class="modal fade" id="modalDetail" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -105,29 +104,36 @@
       <div class="modal-body">
         <div class="carde">        
           <div class="card-body">
-            <form action="">           
+              @csrf           
               <div class="container" >
                 <h5 class="text-success"> order jenis Photo</h5>
                 <div class="row">
                   <div class="col-md-12" id="orderPhoto">
-                  </div>
-                    
+                  </div>                 
                 </div>
                <h5 class="text-success"> order bingkai</h5>
                 <div class="row">
                   <div class="col-md-12" id="orderBingkai">
                   </div>
-                  <label for="">date order</label>
-                <input type="date" class="form-control">
+                  
+                </div>
+                <div class="row mt-2">
+                  <div class="col-md-12  " id="orderdate">
+                  </div>
+                  
+                </div>
+                <div class="row mt-2">
+                  <div class="col-md-6" id="orderQty">
+                  </div>
                   
                 </div>
               </div>                 
-            </form>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" id="btnSave">orders</button>
-        <button type="button" id="btnCancel" data-dismiss="modal">cancel</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" id="btnSave">orders</button>
+            <button type="button" id="btnCancel" data-dismiss="modal">cancel</button>
+          </form>
       </div>
     </div>
   </div>
@@ -139,15 +145,14 @@
       
       
       const idcategory= $(this).data('id');
+  
       const categoryPhoto= $(this).data('nama');
       const ket= $(this).data('ket');
       const harga= $(this).data('harga');
-      
-         
+           
       if(check(idcategory)==false){
             $("#message").text(message++);
-            toastr.info("booking photo telah dibuat lihat di pesanan");
-            
+            toastr.info("booking photo telah dibuat lihat di pesanan");           
             $('<input>').attr({
               type: 'hidden',
               id: 'idcategory',
@@ -180,17 +185,31 @@
 
     $(document).on("click",'#btnBuy', function () {
         $("#message").text(message++);
-        toastr.info("Binkai telah dipilih lihat dipesanan");
+        toastr.info("Binkai telah dipilih lihat dipesanan");     
         const bingkaiId= $(this).data('id_bingkai');
+        $('#idCategory').val(bingkaiId);
         const des= $(this).data('des');
         const stok= $(this).data('stock');
         const unit= $(this).data('unit');
         $('<input>').attr({
             type: 'hidden',
-            id: 'idBingkai',
-            name: 'idBingkai',
+            id: 'product_id',
+            name: 'product_id',
             value: bingkaiId
-        }).appendTo('#orderBingkai');
+        }).appendTo('#orderPhoto');
+        $('<input>').attr({
+            type: 'number',
+            id: 'qtyOrder',
+            name: 'qtyOrder',
+            
+            
+        }).appendTo('#orderQty');
+        $('<input>').attr({
+            type: 'date',
+            id: 'dateOrder',
+            name: 'dateOrder',
+            
+        }).appendTo('#orderdate');
        $('<li >').text(des).appendTo('#orderBingkai'); 
           $('<li>').text(`stock:${stok}`).appendTo('#orderBingkai');   
             $('<li id="unit">').text(`Rp.${unit}`).appendTo('#orderBingkai');

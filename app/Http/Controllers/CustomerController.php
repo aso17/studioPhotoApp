@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Order;
+use GuzzleHttp\Promise\Create;
 
 class CustomerController extends Controller
 {
@@ -38,7 +40,26 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validate = $request->validate([
+            'qtyOrder' => 'required',
+            'dateOrder' => 'required',
+
+        ]);
+
+        if ($validate === true) {
+
+            return redirect('/customer')->with('error', 'harap isi dengan benar');
+        } else {
+            Order::create([
+                'qtyOrder' => $request->qtyOrder,
+                'dateOrder' => $request->dateOrder,
+                'product_id' => $request->product_id,
+                'category_id' => $request->idcategory,
+                'cutomer_id' => session('id_user')
+            ]);
+            return redirect('/customer')->with('success', 'create category successful');
+        }
     }
 
     /**
