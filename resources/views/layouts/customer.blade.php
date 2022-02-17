@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RadjaStudioPhotos</title>
+    <title>app</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('asset/plugins/fontawesome-free/css/all.min.css ') }} ">
@@ -64,9 +64,9 @@
     
 </head>
 
-<body style="background: #fafafa">
+<body style="background:">
 
-    <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style="background:rgb(230, 229, 228)">
+    <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style="background">
        <h5><img src="{{asset('/photo-users/'.session('img'))}}" height="60px" width="60px" alt="" 
         style="border-radius:100%; background-color:rgb(219, 153, 29)"><span class="ml-2">{{session('name')}}</span></h5>
         
@@ -74,19 +74,22 @@
           <ul class="navbar-nav"  > 
            
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color:#060606">Home</a>
+              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/customer' }}" style="background-color: #060606">Home</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link" href="#"style="color:#060606">History</a>
+              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/customer/create'}}" style="background-color: #060606">pemesanan</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/customer/create'}}" style="background-color:#060606">History</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color:#060606">pengaturan</a>
+              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="#" style="background-color:#060606">pengaturan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color:#060606">Bantuan</a>
+              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="#" style="background-color:#060606">Bantuan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" style="color:#060606">Logout</a>
+              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="#" style="background-color:#060606" id="logout">Logout</a>
             </li>      
           </ul>
         </div>

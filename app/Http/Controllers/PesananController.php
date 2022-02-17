@@ -3,12 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\Category;
-use App\Models\Order;
-use GuzzleHttp\Promise\Create;
 
-class CustomerController extends Controller
+class PesananController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +13,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $data['product'] = Product::all();
-        $data['category'] = Category::all();
-        return view('customers.index', $data);
+        //
     }
 
     /**
@@ -29,7 +23,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        return view('customers.history');
+        //
     }
 
     /**
@@ -40,25 +34,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-
-        $validate = $request->validate([
-            'dateOrder' => 'required',
-
-        ]);
-
-        if ($validate === true) {
-
-            return redirect('/customer')->with('error', 'harap isi dengan benar');
-        } else {
-            Order::create([
-
-                'dateOrder' => $request->dateOrder,
-                'product_id' => $request->product_id,
-                'category_id' => $request->idcategory,
-                'cutomer_id' => session('id_user')
-            ]);
-            return redirect('/customer')->with('success', 'pesanan telah dibuat lihat lanjutkan di menu pesanan');
-        }
+        //
     }
 
     /**

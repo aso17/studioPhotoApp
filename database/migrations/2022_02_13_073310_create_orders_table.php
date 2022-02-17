@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->char('qtyOrder', 15);
+            $table->char('qtyOrder', 15)->nullable();;
             $table->date('dateOrder');
             $table->timestamps();
         });

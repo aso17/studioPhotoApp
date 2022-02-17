@@ -102,7 +102,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="carde">        
+        <div class="card">        
           <div class="card-body">
               @csrf           
               <div class="container" >
@@ -112,21 +112,17 @@
                   </div>                 
                 </div>
                <h5 class="text-success"> order bingkai</h5>
-                <div class="row">
-                  <div class="col-md-12" id="orderBingkai">
+                <div class="row ">
+                  <div class="col-md-8" id="orderBingkai">
                   </div>
+                
                   
                 </div>
-                <div class="row mt-2">
+                 <div class="row">
                   <div class="col-md-12  " id="orderdate">
+                    <input type="date" id="dateOrder" name="dateOrder">
                   </div>
-                  
-                </div>
-                <div class="row mt-2">
-                  <div class="col-md-6" id="orderQty">
-                  </div>
-                  
-                </div>
+                </div>          
               </div>                 
             </div>
           </div>
@@ -197,19 +193,8 @@
             name: 'product_id',
             value: bingkaiId
         }).appendTo('#orderPhoto');
-        $('<input>').attr({
-            type: 'number',
-            id: 'qtyOrder',
-            name: 'qtyOrder',
-            
-            
-        }).appendTo('#orderQty');
-        $('<input>').attr({
-            type: 'date',
-            id: 'dateOrder',
-            name: 'dateOrder',
-            
-        }).appendTo('#orderdate');
+       
+        
        $('<li >').text(des).appendTo('#orderBingkai'); 
           $('<li>').text(`stock:${stok}`).appendTo('#orderBingkai');   
             $('<li id="unit">').text(`Rp.${unit}`).appendTo('#orderBingkai');

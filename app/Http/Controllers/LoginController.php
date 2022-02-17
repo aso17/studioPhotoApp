@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * 
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -102,7 +102,9 @@ class LoginController extends Controller
                     "fullName" => $user->fullName,
                     "email" => $user->email,
                     "name" => $user->fullName,
-                    "img" => $user->photo
+                    "img" => $user->photo,
+                    "alamat" => $user->addres,
+                    "no_phone" => $user->phoneNumber
 
                 ]);
                 if ($user->role == 1) {
