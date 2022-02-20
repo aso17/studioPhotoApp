@@ -15,13 +15,11 @@ return new class extends Migration
     {
         Schema::create('details', function (Blueprint $table) {
             $table->id();
+            $table->char('kodeTransaksi', 100);
             $table->char('status', 30)->nullable();
             $table->char('proofTransfer', 100)->nullable();
             $table->char('totalPrice', 20)->nullable();
             $table->timestamps();
-        });
-        Schema::table('details', function (Blueprint $table) {
-            $table->foreignId('order_id')->constrained('orders');
         });
     }
 

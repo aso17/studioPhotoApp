@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>app</title>
-
+    
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('asset/plugins/fontawesome-free/css/all.min.css ') }} ">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('asset/dist/css/adminlte.min.css') }} ">
     <link rel="stylesheet" href="{{ asset('asset/css/mystyle.css') }} ">
     {{-- code css gue --}}
-
+    
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('asset/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
     <link rel="stylesheet"
-        href="{{ asset('asset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    href="{{ asset('asset/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/plugins/datatables-buttons/css/buttons.dataTables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/plugins/datatables-buttons/css/buttons.dataTables.min.css') }}">
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{ asset('asset/plugins/sweetalert2/sweetalert2.min.css') }}">
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('asset/plugins/toastr/toastr.min.css') }}">
+    {{-- <script language="JavaScript" type="text/javascript" src="{{ asset('asset/js/jsku.js') }} "> --}}
 
 
 
@@ -33,11 +34,10 @@
 
     <!-- jQuery -->
     <script language="JavaScript" type="text/javascript" src="{{ asset('asset/plugins/jquery/jquery.min.js') }} ">
-    <script language="JavaScript" type="text/javascript" src="{{ asset('asset/js/my.js') }} ">
     </script>
     <!-- Bootstrap 4 -->
     <script language="JavaScript" type="text/javascript"
-        src=" {{ asset('asset/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    src=" {{ asset('asset/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script language="JavaScript" type="text/javascript" src="{{ asset('asset/dist/js/adminlte.min.js') }}"></script>
     
@@ -46,19 +46,19 @@
         src="{{ asset('asset/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script language="JavaScript" type="text/javascript"
         src="{{ asset('asset/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-    <script language="JavaScript" type="text/javascript"
+        <script language="JavaScript" type="text/javascript"
         src="{{ asset('asset/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-    <script language="JavaScript" type="text/javascript"
+        <script language="JavaScript" type="text/javascript"
         src="{{ asset('asset/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
-    <script language="JavaScript" type="text/javascript"
+        <script language="JavaScript" type="text/javascript"
         src="{{ asset('asset/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('asset/toastr/toastr.min.js') }}"></script>
-
-    <!-- Sweetalert -->
-    <script language="JavaScript" type="text/javascript"
+        <script src="{{ asset('asset/toastr/toastr.min.js') }}"></script>
+        
+        <!-- Sweetalert -->
+        <script language="JavaScript" type="text/javascript"
         src="{{ asset('asset/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-    <!-- Toastr -->
-    <script language="JavaScript" type="text/javascript" src="{{ asset('asset/plugins/toastr/toastr.min.js') }}">
+        <!-- Toastr -->
+        <script language="JavaScript" type="text/javascript" src="{{ asset('asset/plugins/toastr/toastr.min.js') }}">
         </script>
 
     
@@ -77,14 +77,14 @@
               <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/customer' }}" style="background-color: #060606">Home</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/customer/create'}}" style="background-color: #060606">pemesanan</a>
+              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/pemesanan'}}" style="background-color: #060606">pemesanan</a>
             </li>
             <li class="nav-item ">
               <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/customer/create'}}" style="background-color:#060606">History</a>
             </li>
-            <li class="nav-item">
+            {{-- <li class="nav-item">
               <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="#" style="background-color:#060606">pengaturan</a>
-            </li>
+            </li> --}}
             <li class="nav-item">
               <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="#" style="background-color:#060606">Bantuan</a>
             </li>

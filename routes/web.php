@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PesananController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,4 @@ Route::resource('customer', CustomerController::class);
 Route::resource('product', ProductController::class);
 //categorie
 Route::resource('category', CategoryController::class);
+Route::resource('pemesanan', PesananController::class);

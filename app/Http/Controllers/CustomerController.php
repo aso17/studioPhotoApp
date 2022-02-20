@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Order;
+use App\Models\Detail;
+use Illuminate\Support\Arr;
 use GuzzleHttp\Promise\Create;
+use PHPUnit\Framework\Constraint\Count;
 
 class CustomerController extends Controller
 {
@@ -46,22 +49,60 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        $qtybaru = $request->jmlBeli;
+        $productbeli = $request->product_id;
+        $jmlPorduct = Count($productbeli);
+        for ($in = 0; $in < $jmlPorduct; $in++) {
+            $datStoklama = Product::where('id', '=', $productbeli[$in])->first();
+            $stockbaru = $datStoklama->stock - $qtybaru[$in];
+            Product::where('id', $productbeli[$in])
+                ->update(['stock' => $stockbaru]);
+        }
 
+
+        $array = 12345;
+        $kdtransaksi = rand(113, $array);
+        $hrgCategory = $request->hrgCategory;
+        $hrgTotalBingkai = $request->total;
+        $tmpHrga = [];
+        $jmlhrga = Count($request->total);
+        $l = 0;
+        for ($n = 0; $n < $jmlhrga; $n++) {
+            $tmpHrga = $hrgTotalBingkai[$l] + $hrgTotalBingkai[$l + 1];
+        }
+
+        $grandTotal = $hrgCategory + $tmpHrga;
         $validate = $request->validate([
             'dateOrder' => 'required',
 
         ]);
         if ($validate === true) {
-
             return redirect('/customer')->with('error', 'harap isi dengan benar');
         } else {
-            Order::create([
+            $productId = $request->product_id;
+            $qtyBeli = $request->jmlBeli;
+            $jmlId = Count($productId);
+            for ($i = 0; $i < $jmlId; $i++) {
+                Order::create([
+                    'kodeTransaksi' => $kdtransaksi,
+                    'dateOrder' => $request->dateOrder,
+                    'qtyOrder' => $qtyBeli[$i],
+                    'product_id' => $productId[$i],
+                    'category_id' => $request->idcategory,
+                    'cutomer_id' => session('id_user')
+                ]);
+            }
+            Detail::create([
+                'status' => "belum bayar",
+                'kodeTransaksi' => $kdtransaksi,
+                'proofTransfer' => "",
+                'totalPrice' => $grandTotal,
 
-                'dateOrder' => $request->dateOrder,
-                'product_id' => $request->product_id,
-                'category_id' => $request->idcategory,
-                'cutomer_id' => session('id_user')
             ]);
+
+            $datStoklama = Product::where('id', '=', 1);
+
+
             return redirect('/customer')->with('success', 'pesanan telah dibuat lihat lanjutkan di menu pesanan');
         }
     }

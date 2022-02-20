@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Detail extends Model
 {
     use HasFactory;
-    protected $fillable = ['status', 'proofTransfer', 'totalPrice'];
+    protected $fillable = ['kodeTransaksi', 'status', 'proofTransfer', 'totalPrice', 'customerId'];
 }
