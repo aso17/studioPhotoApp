@@ -71,15 +71,30 @@
            </div>
          </div>
          <div class="card-body">
-           <h5 class="card-title">{{$item->description}}</h5>
+           <h5 class="card-title text-success">{{$item->description}}</h5>
            <p class="card-text">stock: {{$item->stock}}</p>
-           <h5>Rp.{{$item->unitPrice}}</h5>
-           <button class="btn btn-sm float-right" id="btnBuy"
+           <h5>Rp.{{$item->unitPrice}}</h5>        
+           <button class="btn btn-sm "
            data-id_bingkai="{{$item->id}}"
            data-des="{{$item->description}}"
            data-unit="{{$item->unitPrice}}"
            data-stock="{{$item->stock}}"    
-           >$  Buy</button>
+           >Qty Order  <input type="number" id="qtypesan"> </button>
+           <button class="btn btn-sm"
+           data-id_bingkai="{{$item->id}}"
+           data-des="{{$item->description}}"
+           data-unit="{{$item->unitPrice}}"
+           data-stock="{{$item->stock}}"    
+           >Tatal harga : <span>Rp.3000</span></button>
+           
+          </div>
+          <div class="card-footer">
+            <button class="btn btn-sm float-right" id="btnBuy"
+            data-id_bingkai="{{$item->id}}"
+            data-des="{{$item->description}}"
+            data-unit="{{$item->unitPrice}}"
+            data-stock="{{$item->stock}}"    
+            >$  Buy</button>
           </div>
         </div>
       </div> 
@@ -114,9 +129,7 @@
                <h5 class="text-success"> order bingkai</h5>
                 <div class="row ">
                   <div class="col-md-8" id="orderBingkai">
-                  </div>
-                
-                  
+                  </div>                  
                 </div>
                  <div class="row">
                   <div class="col-md-12  " id="orderdate">

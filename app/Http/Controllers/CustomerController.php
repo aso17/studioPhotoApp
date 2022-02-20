@@ -29,6 +29,12 @@ class CustomerController extends Controller
      */
     public function create()
     {
+        // $data['order'] = Order::leftJoin('categories', 'categories.id', '=', 'orders.category_id')
+        //     ->leftJoin('products', 'products.id', '=', 'orders.product_id')
+        //     ->leftJoin('customers', 'customers.id', '=', 'orders.cutomer_id')
+        //     ->where('orders.cutomer_id', '=', session('id_user'))
+        //     ->groupByRaw('cutomer_id')
+        //     ->get();
         return view('customers.history');
     }
 
@@ -45,7 +51,6 @@ class CustomerController extends Controller
             'dateOrder' => 'required',
 
         ]);
-
         if ($validate === true) {
 
             return redirect('/customer')->with('error', 'harap isi dengan benar');
