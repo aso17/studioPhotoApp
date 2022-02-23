@@ -37,25 +37,22 @@
             <div class="modal-body">
                 <h5>Aturan Penggunaan </h5>
                 <ul class="list-unstyled">
-                    <li>Penentuan Sanksi dilakukan berdasarkan pelanggaran yang sifatnya terstruktur
+                    <li>
                     </li>
-                    <li>Penilaian yang dilakukan atas pelanggaran yang dilakukan</li>
-                    <li>Pemberian sanksi diberikan dari nilai terkecil</li>
-                    <li>Semakin kecil Penilaian semakin berat sanksi yang diberikan</li>
-                    <li> <strong> Kriterian Penilaian</strong>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li> <strong> </strong>
                         <ul>
-                            <li>Karyawan tidak masuk kerja satu hari tanpa Keternagan</li>
-                            <li>izin telat masuk kerja lebih dari tiga kali dalam satu bulan</li>
-                            <li>izin cuti mendadak lebih dari dua kali dalam satu bulan.</li>
-
+                            <li></li>
+                            <li></li>
+                            <li></li>
                         </ul>
                     </li>
-
                 </ul>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn detail btn-secondary" data-dismiss="modal">Close</button>
-
             </div>
         </div>
     </div>

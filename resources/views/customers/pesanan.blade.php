@@ -15,27 +15,18 @@
           <div class="card-header text-success"> <i class="fa fa-phone-square" aria-hidden="true"></i> Phone  : {{ session('no_phone') }}</div>
         </div>
       </div>
-       <?php 
-       if(!$order==""){ ?>
-        <p>Uppss belum Order!</p>
-
-
-        <?php }?>
-
       @foreach ($order as $item)        
       <div class="list-group " >
         <button type="button" class="list-group-item list-group-item-action ">
           <h5>ID transaction : {{ $item->kodeTransaksi }} </h5>
           <p class="text-right text-danger">Status : {{ $item->status }} </p>
-          <div class="">
-           
+          <div class="">          
             <div class="card-body">
               <h5 class="card-title"> Photo: {{ $item->categoryPhoto }}</h5>
               <p class="card-text"> date order : {{ $item->dateOrder }}</p>
               <p class="card-text">Total bayar Rp.{{ number_format($item->totalPrice ) }}</p>
               <a href="#" class="btn btn-sm text-light" style="background-color:#060606" data-toggle="modal" data-target="#exampleModal" id="btnTf"
-              data-kd="{{ $item->kodeTransaksi }}"
-              
+              data-kd="{{ $item->kodeTransaksi }}"             
               >Bayar</a>
               <span class="text-success">Total pemabayaran sudah termasuk bingkai</span>
             </div>

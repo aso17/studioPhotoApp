@@ -32,12 +32,6 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        // $data['order'] = Order::leftJoin('categories', 'categories.id', '=', 'orders.category_id')
-        //     ->leftJoin('products', 'products.id', '=', 'orders.product_id')
-        //     ->leftJoin('customers', 'customers.id', '=', 'orders.cutomer_id')
-        //     ->where('orders.cutomer_id', '=', session('id_user'))
-        //     ->groupByRaw('cutomer_id')
-        //     ->get();
         return view('customers.history');
     }
 
@@ -52,13 +46,26 @@ class CustomerController extends Controller
         $qtybaru = $request->jmlBeli;
         $productbeli = $request->product_id;
         $jmlPorduct = Count($productbeli);
-        for ($in = 0; $in < $jmlPorduct; $in++) {
-            $datStoklama = Product::where('id', '=', $productbeli[$in])->first();
-            $stockbaru = $datStoklama->stock - $qtybaru[$in];
-            Product::where('id', $productbeli[$in])
+        // update stock
+        if ($jmlPorduct > 1) {
+            for ($in = 0; $in < $jmlPorduct; $in++) {
+                $datStoklama = Product::where('id', '=', $productbeli[$in])->first();
+                $stockbaru = $datStoklama->stock - $qtybaru[$in];
+                Product::where('id', $productbeli[$in])
+                    ->update(['stock' => $stockbaru]);
+            }
+        } else {
+
+            $qtybaru = $request->jmlBeli[0];
+            $id_product = $request->product_id[0];
+
+
+            $datStoklama = Product::where('id', '=', $id_product)->first();
+            $stockbaru = (int)$datStoklama->stock - (int)$qtybaru;
+
+            Product::where('id', $id_product)
                 ->update(['stock' => $stockbaru]);
         }
-
 
         $array = 12345;
         $kdtransaksi = rand(113, $array);
@@ -66,32 +73,56 @@ class CustomerController extends Controller
         $hrgTotalBingkai = $request->total;
         $tmpHrga = [];
         $jmlhrga = Count($request->total);
-        $l = 0;
-        for ($n = 0; $n < $jmlhrga; $n++) {
-            $tmpHrga = $hrgTotalBingkai[$l] + $hrgTotalBingkai[$l + 1];
-        }
-
-        $grandTotal = $hrgCategory + $tmpHrga;
-        $validate = $request->validate([
-            'dateOrder' => 'required',
-
-        ]);
-        if ($validate === true) {
-            return redirect('/customer')->with('error', 'harap isi dengan benar');
-        } else {
-            $productId = $request->product_id;
-            $qtyBeli = $request->jmlBeli;
-            $jmlId = Count($productId);
-            for ($i = 0; $i < $jmlId; $i++) {
-                Order::create([
-                    'kodeTransaksi' => $kdtransaksi,
-                    'dateOrder' => $request->dateOrder,
-                    'qtyOrder' => $qtyBeli[$i],
-                    'product_id' => $productId[$i],
-                    'category_id' => $request->idcategory,
-                    'cutomer_id' => session('id_user')
-                ]);
+        if ($jmlhrga > 1) {
+            $l = 0;
+            for ($n = 0; $n < $jmlhrga; $n++) {
+                $tmpHrga = $hrgTotalBingkai[$l] + $hrgTotalBingkai[$l + 1];
             }
+            $grandTotal = $hrgCategory + $tmpHrga;
+            $validate = $request->validate([
+                'dateOrder' => 'required',
+
+            ]);
+            if ($validate === true) {
+                return redirect('/customer')->with('error', 'harap isi dengan benar');
+            } else {
+                $productId = $request->product_id;
+                $qtyBeli = $request->jmlBeli;
+                $jmlId = Count($productId);
+                for ($i = 0; $i < $jmlId; $i++) {
+                    Order::create([
+                        'kodeTransaksi' => $kdtransaksi,
+                        'dateOrder' => $request->dateOrder,
+                        'qtyOrder' => $qtyBeli[$i],
+                        'product_id' => $productId[$i],
+                        'category_id' => $request->idcategory,
+                        'cutomer_id' => session('id_user')
+                    ]);
+                }
+                Detail::create([
+                    'status' => "belum bayar",
+                    'kodeTransaksi' => $kdtransaksi,
+                    'proofTransfer' => "",
+                    'totalPrice' => $grandTotal,
+
+                ]);
+
+                return redirect('/customer')->with('success', 'pesanan telah dibuat lihat lanjutkan di menu pesanan');
+            }
+        } else {
+            $hrgCategory = $request->hrgCategory;
+            $hrgTotalBingkai = $request->total[0];
+            $grandTotal = (int)$hrgCategory + (int)$hrgTotalBingkai;
+
+            Order::create([
+                'kodeTransaksi' => $kdtransaksi,
+                'dateOrder' => $request->dateOrder,
+                'qtyOrder' => $request->jmlBeli[0],
+                'product_id' => $request->product_id[0],
+                'category_id' => $request->idcategory,
+                'cutomer_id' => session('id_user')
+            ]);
+
             Detail::create([
                 'status' => "belum bayar",
                 'kodeTransaksi' => $kdtransaksi,
@@ -99,10 +130,6 @@ class CustomerController extends Controller
                 'totalPrice' => $grandTotal,
 
             ]);
-
-            $datStoklama = Product::where('id', '=', 1);
-
-
             return redirect('/customer')->with('success', 'pesanan telah dibuat lihat lanjutkan di menu pesanan');
         }
     }

@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
-use App\Models\Category;
-use App\Models\Order;
 use App\Models\Detail;
 
-class PesananController extends Controller
+class AdminCustomersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,13 +16,14 @@ class PesananController extends Controller
     {
         $data['order'] = Detail::leftJoin('orders', 'orders.kodeTransaksi', '=', 'details.kodeTransaksi')
             ->leftJoin('products', 'products.id', '=', 'orders.product_id')
+            ->leftJoin('customers', 'customers.id', '=', 'orders.cutomer_id')
             ->leftJoin('categories', 'categories.id', '=', 'orders.category_id')
-            ->where('details.status', '=', 'belum bayar')
             ->groupByRaw('details.kodeTransaksi')
-            ->select('details.*', 'categories.description as categoryName', 'categories.categoryPhoto', 'products.description', 'orders.dateOrder')
+            ->select('details.*', 'categories.description as categoryName', 'categories.categoryPhoto', 'products.description', 'orders.dateOrder', 'customers.*')
             ->get();
-        return view('customers.pesanan', $data);
+        return view('adminCustomers.index', $data);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -33,6 +31,7 @@ class PesananController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -43,22 +42,11 @@ class PesananController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'buktiTransfer' => 'required|image|file|mimes:jpeg,png,jpg|max:4048',
-        ]);
-
-        $file = $request->file('buktiTransfer');
-        $nama_file = $file->getClientOriginalName();
-        $tujuan_upload = 'file-buktiTransfer';
-        $file->move($tujuan_upload, $nama_file);
-
-        Detail::where('kodeTransaksi', $request->kdTransaksi)
+        Detail::where('kodeTransaksi', $request->kode_transaksi)
             ->update([
-                'status' => "menuggu verifikasi",
-                'proofTransfer' => $nama_file
-
+                'status' => "sudah terverifikasi",
             ]);
-        return redirect('/pemesanan')->with('success', 'pemesanan successful menunggu verifikasi');
+        return redirect('/adminCustomers')->with('success', 'pemesanan successful selesai verifikasi');
     }
 
     /**
@@ -92,7 +80,6 @@ class PesananController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**

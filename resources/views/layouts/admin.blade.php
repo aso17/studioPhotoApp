@@ -119,7 +119,7 @@
                             data-accordion="false">
                            
                                 <li class="nav-item  text-left">
-                                    <a href="{{ url('/') }}" class="nav-link ">
+                                    <a href="{{ url('/adminCustomers') }}" class="nav-link ">
                                         <h6 class="text-light ">
                                             <i class="fas fa-address-card pr-1 "></i>Customers
                                         </h6>

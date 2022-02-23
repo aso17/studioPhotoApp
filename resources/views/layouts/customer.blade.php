@@ -74,22 +74,22 @@
           <ul class="navbar-nav"  > 
            
             <li class="nav-item">
-              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/customer' }}" style="background-color: #060606">Home</a>
+              <a class="nav-link text-light  btn  btn-sm mr-2" href="{{'/customer' }}" style="background-color: #060606">Home</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/pemesanan'}}" style="background-color: #060606">pemesanan</a>
+              <a class="nav-link text-light  btn  btn-sm mr-2" href="{{'/pemesanan'}}" style="background-color: #060606">pemesanan</a>
             </li>
             <li class="nav-item ">
-              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="{{'/customer/create'}}" style="background-color:#060606">History</a>
+              <a class="nav-link text-light  btn  btn-sm mr-2" href="{{'/history'}}" style="background-color:#060606">History</a>
             </li>
             {{-- <li class="nav-item">
-              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="#" style="background-color:#060606">pengaturan</a>
+              <a class="nav-link text-light  btn  btn-sm mr-2" href="#" style="background-color:#060606">pengaturan</a>
             </li> --}}
             <li class="nav-item">
-              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="#" style="background-color:#060606">Bantuan</a>
+              <a class="nav-link text-light  btn  btn-sm mr-2" href="#" style="background-color:#060606">Bantuan</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-light  btn btn-success btn-sm mr-2" href="#" style="background-color:#060606" id="logout">Logout</a>
+              <a class="nav-link text-light  btn  btn-sm mr-2" href="{{ 'logout' }}" id="logout">Logout</a>
             </li>      
           </ul>
         </div>

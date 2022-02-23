@@ -2,7 +2,7 @@
 @section('content')
 
 <section class="content">
-    <div class="container-fluid mt-3">
+    <div class="container-fluid mt-3" style="margin-top: 7rem">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -12,7 +12,6 @@
                         <a href="{{'/product/create'}}" class="float-right btn btn-lg"><button id="btnadd">create product</button></a>
                                          
                     </div>
-                
                                     <div class="row">
                                 @foreach ($product as $item)
                                            <div class="col-md-3">
