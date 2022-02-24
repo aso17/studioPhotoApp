@@ -28,7 +28,7 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->kodeTransaksi }}</td>
-                                        <td>{{ $item->fullname }}</td>
+                                        <td>{{ $item->fullName }}</td>
                                         <td>{{ $item->addres }}</td>
                                         <td>{{ $item->phoneNumber }}</td>
                                         <td><span class="badge badge-info">{{ $item->status }}</span></td>

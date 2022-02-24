@@ -4,10 +4,8 @@
   <div class="row "> 
       <div class="col-md-6" style="margin-top: 7rem">
         <h5 class="text-shadow text-success" >Total Tagihan</h5>
-
       </div> 
       </div>
-
       <div class="row">
         <div class="col-md-5">
           <div class="card-header text-success "> <i class="fa fa-address-book" aria-hidden="true"></i> Name  : {{ session('name') }}</div>
@@ -31,21 +29,13 @@
         </button>     
       </div>
       @endforeach
-        </div>
-      
+        </div>     
   </div>
 </div>
 </div>
 </div>
-
-
-
-
 <script>
-
-
 $(document).ready(function () {
-
 $(document).on("click",'#btnTf', function (e) {          
   const kdtrasaksi= $(this).data('kd');
  let inputanKd=$('#kdTransaksi');

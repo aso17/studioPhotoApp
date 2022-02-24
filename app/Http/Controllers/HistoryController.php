@@ -18,6 +18,7 @@ class HistoryController extends Controller
             ->leftJoin('products', 'products.id', '=', 'orders.product_id')
             ->leftJoin('categories', 'categories.id', '=', 'orders.category_id')
             ->where('details.status', '!=', 'belum bayar')
+            ->where('orders.cutomer_id', '=', session('id_user'))
             ->groupByRaw('details.kodeTransaksi')
             ->select('details.*', 'categories.description as categoryName', 'categories.categoryPhoto', 'products.description', 'orders.dateOrder')
             ->get();
