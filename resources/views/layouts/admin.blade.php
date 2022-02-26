@@ -76,7 +76,6 @@
                             class="fas fa-bars bg-warning"></i></a>
 
                 </li>
-
                 <h6 class="text">Padang<br>Jalan Gatot Subroto, <br>Kadu, Curug, Kadu, Kec. Curug, Kota
                     Padang, sumut
                     15810
@@ -86,13 +85,13 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <button onclick="logConfirm('')" class="btn btn btn-sm text-light" class="nav-link "
-                        id=" logoutmodal" data-toggle="modal" data-target="#logoutmodal"
+                    <a href="{{'/logout'}}">
+                        <button  class="nav-link "
                         style="background-color:#e01d1d"><i class="fas fa-sign-out-alt"></i>Exit</button>
+                    </a>
                 </li>
             </ul>
-        </nav>
-    
+        </nav> 
         <aside class="main-sidebar sidebar-dark-primary elevation-4 text-center" style="background:#2F4F4F ">
             <!-- Brand Logo -->
             <a href="" class="brand-link">
@@ -100,14 +99,12 @@
                     width="220px" height="70px" class="img-thumbnail" style="background: #2F4F4F;border-color:#2F4F4f"><br>
                 <span class=" brand-text">Radja Photos</span> <br>
             </a>
-
-            <div class="sidebar ">
-               
+            <div class="sidebar ">             
                 <nav class="mt-4 ">
                     <ul class="nav nav-pills nav-sidebar flex-column  " data-widget="treeview" role="menu"
                         data-accordion="false">
                         <li class="nav-item text-left">
-                            <a href="{{ url('/Dashboard') }}" class="nav-link ">
+                            <a href="{{ url('/dashboard') }}" class="nav-link ">
                                 <h6 class="text-light ">
                                     <i class="fas fa-tachometer-alt"></i>
                                     Dashboard
@@ -116,60 +113,46 @@
                             </a>
                         </li>
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                            data-accordion="false">
-                           
+                            data-accordion="false">                   
                                 <li class="nav-item  text-left">
                                     <a href="{{ url('/adminCustomers') }}" class="nav-link ">
                                         <h6 class="text-light ">
-                                            <i class="fas fa-address-card pr-1 "></i>Customers
+                                            <i class="fas fa-address-card pr-1 "></i> Customers
                                         </h6>
                                     </a>
-                                </li>
-                               
-                        
-
+                                </li>                
                                 <li class="nav-item  text-left">
                                     <a href="{{ url('/product') }}" class="nav-link ">
                                         <h6 class="text-light ">
-                                            <i class="fas fa-address-card pr-1 "></i>Products
+                                            <i class="fas fa-address-card pr-1 "></i> Products
                                         </h6>
                                     </a>
                                 </li>
                                 <li class="nav-item  text-left">
                                     <a href="{{ url('/category') }}" class="nav-link ">
                                         <h6 class="text-light ">
-                                            <i class="fas fa-address-card pr-1 "></i>Category
+                                            <i class="fas fa-address-card pr-1 "></i> Category
                                         </h6>
                                     </a>
                                 </li>
-                               
-                         
-
                                 <li class="nav-item text-left">
                                     <a href="{{ url('/report') }}" class="nav-link">
                                         <h6 class=" text-light">
-                                            <i class="fas fa-file-invoice "></i>
-                                            Laporan
+                                            <i class="fas fa-file-invoice "></i>  Laporan
                                         </h6>
                                     </a>
-                                </li>
-                          
+                                </li>              
                                 <li class="nav-item text-left">
                                     <a href="{{ '/user' }}" class="nav-link" class="nav-link">
                                         <h6 class=" text-light">
-                                            <i class="fas fa-user-cog"></i>
-                                            Users
+                                            <i class="fas fa-user-cog"></i> Users
                                         </h6>
                                     </a>
                                 </li>
-                          
-
 
                         </ul>
                 </nav>
-                <!-- /.sidebar-menu -->
             </div>
-            <!-- /.sidebar -->
         </aside>
 
 

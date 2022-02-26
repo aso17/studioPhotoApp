@@ -33,7 +33,6 @@ class PrintController extends Controller
 
         // Render the HTML as PDF
         $dompdf->render();
-
         // Output the generated PDF to Browser
         $dompdf->stream('reportradjastudio.pdf');
     }
