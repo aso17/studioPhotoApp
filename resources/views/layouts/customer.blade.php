@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset('asset/plugins/toastr/toastr.min.css') }}">
     {{-- <script language="JavaScript" type="text/javascript" src="{{ asset('asset/js/jsku.js') }} "> --}}
 
-
+      <link rel="icon" href="{{ asset('foto/logo/logo.png') }}" type="image/png">
 
     <!-- REQUIRED SCRIPTS -->
 

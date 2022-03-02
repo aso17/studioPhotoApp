@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('asset/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/plugins/toastr/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/toastr/toastr.min.css') }}">
+    <link rel="icon" href="{{ asset('foto/logo/logo.png') }}" type="image/png">
 </head>
 
 <body class="hold-transition register-page" style="background:#060606">
@@ -22,12 +23,13 @@
             <a href="/"><b>Radja</b>Foto</a>
         </div>
 
-        <div class="card" >
+<div class="card" >
             <div class="card-body register-card-body"  style="background-color:wheat">
-                <p class="login-box-msg">Register a new membership</p>
+                          <p class="login-box-msg">Register a new membership</p>
 
                 <form method="post" action="{{'/registrasi'}}" enctype="multipart/form-data">
                     @csrf
+                  
                     <div class="input-group mb-3">
                         <input id="fullName" type="text" class="form-control @error('fullName') is-invalid @enderror"
                             placeholder="fullName" name="fullName" value="{{ old('fullName') }}" required autocomplete="fullName"

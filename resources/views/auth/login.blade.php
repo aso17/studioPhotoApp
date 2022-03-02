@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('asset/dist/css/adminlte.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/plugins/toastr/toastr.min.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/toastr/toastr.min.css') }}">
-   
+    <link rel="icon" href="{{ asset('foto/logo/logo.png') }}" type="image/png">
 
 </head>
 

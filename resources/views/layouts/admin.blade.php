@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset('asset/plugins/sweetalert2/sweetalert2.min.css') }}">
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('asset/plugins/toastr/toastr.min.css') }}">
-
+    <link rel="icon" href="{{ asset('foto/logo/logo.png') }}" type="image/png">
 
 
     <!-- REQUIRED SCRIPTS -->

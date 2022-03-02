@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Customer;
+use DateTime;
 use Illuminate\Support\Facades\hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 
@@ -39,6 +41,7 @@ class LoginController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'fullName' => 'required',
             'phoneNumber' => 'required|unique:customers',
@@ -63,15 +66,20 @@ class LoginController extends Controller
         ]);
 
         $idcustomer = Customer::max('id');
-
+        $tgl = sha1(time());
         User::create([
             'customer_id' => $idcustomer,
             'role' => 1,
+            'code_verified_at' => $tgl,
             'email' => $request->email,
             'password' => Hash::make($request->password)
 
         ]);
-        return redirect('/registrasi')->with('success', 'registration successful silahkan login');
+        // $user = new user();
+        if ($request->email != null) {
+            MailController::sendSignupEmail($request->fullName, $request->email, $tgl);
+            return redirect('/')->with('success', 'Registration success  silahkan check email anda untuk verifikasi');
+        }
     }
 
     /**
@@ -121,7 +129,22 @@ class LoginController extends Controller
             return redirect('/')->with('error', 'Not Registered Please Register');
         }
     }
-
+    public function verify($verifyCode)
+    {
+        $user = User::where(['code_verified_at' => $verifyCode])->first();
+        if ($user != null) {
+            // $i = $user->is_verified;
+            // var_dump($i);
+            // die;
+            if ($user->is_verified == 0) {
+                $user->is_verified = 1;
+                $user->save();
+                return redirect('/')->with('success', 'verifikasi berhasil silahkan login');
+            } else {
+                return redirect('/')->with('error', 'verifikasi sudah di lakukan silahkan login');
+            }
+        }
+    }
     public function logout()
     {
         Session::flush();
